@@ -1,13 +1,28 @@
 ;;; mgmt-mode.el --- mgmt configuration management language
 
-;; Copyright (C) 2017 Peter Oliver
+;; Copyright 2017 Peter Oliver.
+
+;; This file is part of mgmt-mode.
+;;
+;; mgmt-mode is free software: you can redistribute it and/or modify it
+;; under the terms of the GNU General Public License as published by the
+;; Free Software Foundation, either version 3 of the License, or (at
+;; your option) any later version.
+;;
+;; mgmt-mode is distributed in the hope that it will be useful, but
+;; WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; General Public License for more details.
+;;
+;; You should have received a copy of the GNU General Public License
+;; along with mgmt-mode.  If not, see <https://www.gnu.org/licenses/>.
 
 ;; Author: Peter Oliver <mgmt-mode@mavit.org.uk>
 ;; Keywords: languages
 ;; URL: https://github.com/mavit/mgmt-mode
 
 ;;; Commentary:
-
+;;
 ;; Major mode for mgmt, a next generation automation tool.
 ;; https://github.com/purpleidea/mgmt
 
