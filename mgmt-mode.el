@@ -28,6 +28,26 @@
 
 ;;; Code:
 
+(require 'smie)
+
+(defconst mgmt-smie-grammar
+      (smie-prec2->grammar
+       (smie-bnf->prec2
+        '((map ("{" pairs "}"))
+          (pairs (pair) (pair "," pairs))
+          (pair (key "=>" value))
+          (key)
+          (value)))))
+
+(defun mgmt-smie-rules (method token)
+  "Rules for indenting the mgmt language.
+METHOD and TOKEN are as for `smie-rules-function'."
+  (pcase (cons method token)
+    ;; Statements in mgmt end at the end of a line.  This causes SMIE
+    ;; not to indent every line as if it were a continuation of the
+    ;; statement on the previous line:
+    (`(:list-intro . ,_) t)))
+
 (defconst mgmt-mode-syntax-table
   (let ((st (make-syntax-table)))
     (modify-syntax-entry ?# "<" st)
@@ -53,7 +73,9 @@
   (setq-local comment-start "# ")
   (setq-local comment-start-skip "#+\\s-*")
 
-  (setq font-lock-defaults '(mgmt-mode-highlights)))
+  (setq font-lock-defaults '(mgmt-mode-highlights))
+
+  (smie-setup mgmt-smie-grammar #'mgmt-smie-rules))
 
 
 (provide 'mgmt-mode)
