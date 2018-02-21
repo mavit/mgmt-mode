@@ -77,6 +77,9 @@ METHOD and TOKEN are as for `smie-rules-function'."
 
   (smie-setup mgmt-smie-grammar #'mgmt-smie-rules))
 
+;;;###autoload
+(add-to-list 'auto-mode-alist '("\\.mcl\\'" . mgmt-mode))
+
 
 (provide 'mgmt-mode)
 
