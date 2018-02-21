@@ -55,6 +55,10 @@ METHOD and TOKEN are as for `smie-rules-function'."
     st))
 
 (defconst mgmt-mode-highlights
+  ;; Keywords and types cribbed from
+  ;; https://github.com/purpleidea/mgmt/blob/master/lang/lexer.nex.
+  ;; Resources from
+  ;; https://github.com/purpleidea/mgmt/tree/master/resources.
   `((,(regexp-opt (list "if" "else" "in" "true" "false") 'words)
      . font-lock-keyword-face)
     (,(concat "^\\s-*"
